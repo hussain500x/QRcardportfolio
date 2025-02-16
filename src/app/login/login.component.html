@@ -1,15 +1,26 @@
+sss
+
+<div *ngIf="data">
+  <h2>Users:</h2>
+  <ul>
+    <li *ngFor="let user of data.users">
+      {{ user.name }} - {{ user.email }} -{{user.password}}
+    </li>
+  </ul>
+</div>
+
 <!-- login.component.html -->
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card shadow">
         <div class="card-body">
-          <img src="../../assets/hbg.png" alt="fdsfsdf">
+          <img src="assets/img/hbg.png" alt="fdsfsdf">
           <h2 class="card-title text-center mb-4">Login</h2>
-          <form>
+          <form (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="email" class="form-label">Email </label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
               <div class="text-danger">
                 <!-- <small>required</small> -->
               </div>
@@ -17,7 +28,7 @@
 
             <div class="mb-4">
               <label for="password" class="form-label">Password </label>
-              <input type="password" class="form-control" id="password" name="password" required>
+              <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
               <div class="text-danger">
                 <!-- <small>required</small> -->
               </div>
@@ -33,6 +44,19 @@
             <!-- <div class="alert alert-danger mt-3">
             </div> -->
           </form>
+
+          <!-- 
+          <form (ngSubmit)="onSubmit()">
+            <div>
+              <label>Username:</label>
+              <input type="text" [(ngModel)]="username" name="username" required>
+            </div>
+            <div>
+              <label>Password:</label>
+              <input type="password" [(ngModel)]="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+          </form> -->
           <hr>
           <a routerLink="/register" class="float-end"> Registration</a>
 

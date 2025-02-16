@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   standalone: true,
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
+ constructor(private authService: AuthService) {}
 
+  logout(): void {
+    this.authService.logout();
+  }
 }
