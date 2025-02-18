@@ -1,13 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   standalone: true,
   selector: 'app-registration',
-  imports: [RouterModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
+  username = '';
+  password = '';
+  constructor() { }
+
+  ngOnInit() {
+  }
+  onRegister(): void {
+    let userObj = {
+      username: this.username,
+      password: this.password
+    };
+
+
+    let users: any = localStorage.getItem('users') || [];
+
+    if (users?.length) {
+      users = JSON.parse(users);
+      users.push(userObj);
+      localStorage.setItem('users', JSON.stringify(users));
+    } else {
+      localStorage.setItem('users', JSON.stringify([userObj]));
+    }
+  }
 
 }
