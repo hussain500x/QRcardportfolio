@@ -21,7 +21,7 @@ export class LoginComponent {
 
   constructor(private router: Router) { }
   onLogin(): void {
-    const usersStr = localStorage.getItem('currentUser');
+    const usersStr = localStorage.getItem('users');
     const users = usersStr ? JSON.parse(usersStr) : [];
 
     const user = users.find((u: any) =>

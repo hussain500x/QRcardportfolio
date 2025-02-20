@@ -22,14 +22,14 @@ export class RegistrationComponent implements OnInit {
     };
 
 
-    let users: any = localStorage.getItem('currentUser') || [];
+    let users: any = localStorage.getItem('users') || [];
 
     if (users?.length) {
       users = JSON.parse(users);
       users.push(userObj);
-      localStorage.setItem('currentUser', JSON.stringify(users));
+      localStorage.setItem('users', JSON.stringify(users));
     } else {
-      localStorage.setItem('currentUser', JSON.stringify([userObj]));
+      localStorage.setItem('users', JSON.stringify([userObj]));
     }
   }
 
