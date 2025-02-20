@@ -6,7 +6,7 @@
         <!-- الهيدر -->
         <div class="card-header bg-primary text-white text-center py-4">
           <img src="placeholder.jpg" class="rounded-circle mb-3" width="120" alt="Profile Image">
-          <h2 class="mb-1">John Doe</h2>
+          <h2 class="mb-1">{{ currentUser.username }}</h2>
           <p class="mb-0">Senior Developer</p>
           <!-- <small>Riyadh, Saudi Arabia</small> -->
         </div>
@@ -57,3 +57,14 @@
     </div>
   </div>
 </div>
+
+
+<!-- <div>
+  <h1>مرحبًا !</h1>
+  <p>لقد قمت بتسجيل الدخول بنجاح.</p>
+  <p>بياناتك:</p>
+  <ul>
+    <li>اسم المستخدم: {{ currentUser.username }}</li>
+    <li>كلمة المرور: {{ currentUser.password }}</li>
+  </ul>
+</div> -->

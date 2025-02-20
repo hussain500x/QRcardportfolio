@@ -1,14 +1,3 @@
-sss
-
-<div *ngIf="data">
-  <h2>Users:</h2>
-  <ul>
-    <li *ngFor="let user of data.users">
-      {{ user.name }} - {{ user.email }} -{{user.password}}
-    </li>
-  </ul>
-</div>
-
 <!-- login.component.html -->
 <div class="container mt-5">
   <div class="row justify-content-center">
@@ -17,15 +6,20 @@ sss
         <div class="card-body">
           <img src="assets/img/hbg.png" alt="fdsfsdf">
           <h2 class="card-title text-center mb-4">Login</h2>
-          <form (ngSubmit)="onSubmit()">
-            <div class="mb-3">
+
+          <!-- <div class="mb-3">
               <label for="email" class="form-label">Email </label>
               <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
               <div class="text-danger">
-                <!-- <small>required</small> -->
+                <small>required</small>
               </div>
+            </div> -->
+          <div class="mb-4">
+            <label for="password" class="form-label">Username </label>
+            <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="اسم المستخدم">
+            <div class="text-danger">
+              <!-- <small>required</small> -->
             </div>
-
             <div class="mb-4">
               <label for="password" class="form-label">Password </label>
               <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
@@ -35,7 +29,7 @@ sss
             </div>
 
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" (click)="onLogin()">
                 Login
               </button>
             </div>
@@ -43,9 +37,9 @@ sss
             <!-- رسائل الخطأ -->
             <!-- <div class="alert alert-danger mt-3">
             </div> -->
-          </form>
 
-          <!-- 
+
+            <!-- 
           <form (ngSubmit)="onSubmit()">
             <div>
               <label>Username:</label>
@@ -57,11 +51,11 @@ sss
             </div>
             <button type="submit">Login</button>
           </form> -->
-          <hr>
-          <a routerLink="/register" class="float-end"> Registration</a>
+            <hr>
+            <a routerLink="/register" class="float-end"> Registration</a>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
