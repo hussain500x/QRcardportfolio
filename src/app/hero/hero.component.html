@@ -7,7 +7,7 @@
         <div class="card-header bg-primary text-white text-center py-4">
           <img src="placeholder.jpg" class="rounded-circle mb-3" width="120" alt="Profile Image">
           <h2 class="mb-1">{{ currentUser.username }}</h2>
-          <p class="mb-0">Senior Developer</p>
+          <!-- <p class="mb-0">Senior Developer</p> -->
           <!-- <small>Riyadh, Saudi Arabia</small> -->
         </div>
 
@@ -17,7 +17,7 @@
               <div class="mb-4">
                 <h5 class="text-primary"><i class="bi bi-briefcase me-2"></i>Job Details</h5>
                 <ul class="list-unstyled">
-                  <li class="mb-2"><strong>Position:</strong> Senior Developer</li>
+                  <li class="mb-2"><strong>Position: </strong>{{currentUser.jobTitle}}</li>
                 </ul>
               </div>
 
@@ -25,7 +25,8 @@
                 <h5 class="text-primary"><i class="bi bi-envelope me-2"></i>Contact</h5>
                 <ul class="list-unstyled">
                   <li class="mb-2"></li>
-                  <li class="mb-2">+966 555 123 456</li>
+                  <li class="mb-2"> +966
+                    {{currentUser.phone}} </li>
                 </ul>
               </div>
             </div>
@@ -34,10 +35,13 @@
               <div class="mb-4">
                 <h5 class="text-primary"><i class="bi bi-globe me-2"></i>Links</h5>
                 <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action">
+                  <a href="{{currentUser.linked}}" class="list-group-item list-group-item-action">
                     <i class="bi bi-linkedin me-2"></i>LinkedIn Profile
                   </a>
-                  <a href="#" class="list-group-item list-group-item-action">
+                  <a href="{{currentUser.cv}}" class="list-group-item list-group-item-action"
+                    target="_blank">{{currentUser.cv}}</a>
+
+                  <a href="{{currentUser.linked}}" class="list-group-item list-group-item-action" target="_blank">
                     <i class="bi bi-github me-2"></i>Portfolio Website
                   </a>
                 </div>

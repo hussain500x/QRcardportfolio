@@ -11,6 +11,15 @@ import { FormsModule } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   username = '';
   password = '';
+  about = '';
+  phone = '';
+  country = '';
+  jobTitle = '';
+  cv = '';
+  linkedin = '';
+  personalimg = '';
+
+
   constructor() { }
 
   ngOnInit() {
@@ -18,7 +27,14 @@ export class RegistrationComponent implements OnInit {
   onRegister(): void {
     let userObj = {
       username: this.username,
-      password: this.password
+      password: this.password,
+      about: this.about,
+      phone: this.phone,
+      country: this.country,
+      jobTitle: this.jobTitle,
+      cv: this.cv,
+      linked: this.linkedin,
+      personalimg: this.personalimg
     };
 
 
@@ -34,3 +50,4 @@ export class RegistrationComponent implements OnInit {
   }
 
 }
+
