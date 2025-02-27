@@ -1,74 +1,50 @@
 <div class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-5">
       <!-- بطاقة الملف الشخصي -->
-      <div class="card shadow">
-        <!-- الهيدر -->
-        <div class="card-header bg-primary text-white text-center py-4">
-          <img src="placeholder.jpg" class="rounded-circle mb-3" width="120" alt="Profile Image">
-          <h2 class="mb-1">{{ currentUser.username }}</h2>
-          <!-- <p class="mb-0">Senior Developer</p> -->
-          <!-- <small>Riyadh, Saudi Arabia</small> -->
+      <div class="card shadow" style="border-radius: 16px !important;">
+        <div class="container g-0">
+          <div class="row ">
+            <div class="col-10">
+              <h5 class="m-1 p-2">{{ currentUser.username }}</h5>
+            </div>
+          </div>
+
+          <hr class="m-0">
+          <div class="imgport">
+            <img src="{{currentUser.personalimg}}" class="mb-3 mt-3 img-fluid text-center inmgpe" alt="Profile Image">
+          </div>
+
+          <div class="card-jopt">
+            <h5 class="m-0">{{currentUser.jobTitle}}</h5>
+          </div>
+
+          <div class="card-jopt">
+            <p class="mb-5">{{currentUser.about}}</p>
+            <hr class="m-0">
+            <div class="d-inline-flex pt-2">
+
+              <a href="{{currentUser.linked}}"
+                class="list-group-item list-group-item-action me-3 text-decoration-underline d-inline-flex"
+                target="_blank">
+                LinkedIn <img src="../../assets/img/arrow-up-right.svg" alt="" class="invert-image"> </a>
+
+              <a href="{{currentUser.cv}}"
+                class="list-group-item list-group-item-action text-decoration-underline d-inline-flex"
+                target="_blank">Portfolio <img src="../../assets/img/arrow-up-right.svg" alt=""
+                  class="invert-image"></a>
+            </div>
+          </div>
+
         </div>
 
-        <div class="card-body">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <div class="mb-4">
-                <h5 class="text-primary"><i class="bi bi-briefcase me-2"></i>Job Details</h5>
-                <ul class="list-unstyled">
-                  <li class="mb-2"><strong>Position: </strong>{{currentUser.jobTitle}}</li>
-                </ul>
-              </div>
-
-              <div class="mb-4">
-                <h5 class="text-primary"><i class="bi bi-envelope me-2"></i>Contact</h5>
-                <ul class="list-unstyled">
-                  <li class="mb-2"></li>
-                  <li class="mb-2"> +966
-                    {{currentUser.phone}} </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="mb-4">
-                <h5 class="text-primary"><i class="bi bi-globe me-2"></i>Links</h5>
-                <div class="list-group">
-                  <a href="{{currentUser.linked}}" class="list-group-item list-group-item-action">
-                    <i class="bi bi-linkedin me-2"></i>LinkedIn Profile
-                  </a>
-                  <a href="{{currentUser.cv}}" class="list-group-item list-group-item-action"
-                    target="_blank">{{currentUser.cv}}</a>
-
-                  <a href="{{currentUser.linked}}" class="list-group-item list-group-item-action" target="_blank">
-                    <i class="bi bi-github me-2"></i>Portfolio Website
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <div class="text-center">
-            <a href="" class="btn btn-outline-primary">
-              <i class="bi bi-pencil-square me-2"></i>Edit Profile
-            </a>
-          </div>
+      </div>
+      <div class="col-4 mt-3">
+        <div class="text-center">
+          <a href="" class="btn btn-outline-primary w-100">Logout
+          </a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- <div>
-  <h1>مرحبًا !</h1>
-  <p>لقد قمت بتسجيل الدخول بنجاح.</p>
-  <p>بياناتك:</p>
-  <ul>
-    <li>اسم المستخدم: {{ currentUser.username }}</li>
-    <li>كلمة المرور: {{ currentUser.password }}</li>
-  </ul>
-</div> -->

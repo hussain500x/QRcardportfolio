@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+body,
+html {
+  background: #1D2025 !important;
+}
+
+.card {
+  background: #25282c !important;
+  color: #fff !important;
+  border: solid 1px #2f2f31 !important;
+}
+
+.textcolor {
+  color: #52FBE8;
+}
+
+.btn {
+  background: radial-gradient(302.03% 542.06% at 89.72% 0%, #463195 0%, #27315b 17%, #25223e 30%, #3f424d 50%, #c4c4c4 63%, #888a8f 76%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  ;
+  border: none !important;
+
+}
+
+a {
+  color: #fff !important;
+}
+
+.imgport {
+  width: 100%;
+  text-align: center;
+}
+
+.card-jopt {
+  border: 1px solid #4a4f56;
+  margin: 8px;
+  padding: 8px;
+  background: #585859;
+  border-radius: 16px;
+}
+
+.invert-image {
+  filter: invert(1);
+}
+
+.inmgpe {
+  height: 300px !important;
+  object-fit: cover !important;
+}

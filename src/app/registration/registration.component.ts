@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   standalone: true,
   selector: 'app-registration',
@@ -20,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   personalimg = '';
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -46,6 +47,13 @@ export class RegistrationComponent implements OnInit {
       localStorage.setItem('users', JSON.stringify(users));
     } else {
       localStorage.setItem('users', JSON.stringify([userObj]));
+    }
+
+    if (users) {
+      alert('تم تسجيل الدخول بنجاح!');
+      this.router.navigate(['/login']);
+    } else {
+      alert('بيانات الدخول غير صحيحة!');
     }
   }
 

@@ -1,30 +1,18 @@
-<!-- login.component.html -->
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card shadow">
         <div class="card-body">
-          <img src="assets/img/hbg.png" alt="fdsfsdf">
           <h2 class="card-title text-center mb-4">Login</h2>
-
-          <!-- <div class="mb-3">
-              <label for="email" class="form-label">Email </label>
-              <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
-              <div class="text-danger">
-                <small>required</small>
-              </div>
-            </div> -->
           <div class="mb-4">
             <label for="password" class="form-label">Username </label>
             <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="اسم المستخدم">
             <div class="text-danger">
-              <!-- <small>required</small> -->
             </div>
             <div class="mb-4">
               <label for="password" class="form-label">Password </label>
               <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
               <div class="text-danger">
-                <!-- <small>required</small> -->
               </div>
             </div>
 
@@ -34,23 +22,6 @@
               </button>
             </div>
 
-            <!-- رسائل الخطأ -->
-            <!-- <div class="alert alert-danger mt-3">
-            </div> -->
-
-
-            <!-- 
-          <form (ngSubmit)="onSubmit()">
-            <div>
-              <label>Username:</label>
-              <input type="text" [(ngModel)]="username" name="username" required>
-            </div>
-            <div>
-              <label>Password:</label>
-              <input type="password" [(ngModel)]="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-          </form> -->
             <hr>
             <a routerLink="/register" class="float-end"> Registration</a>
 
