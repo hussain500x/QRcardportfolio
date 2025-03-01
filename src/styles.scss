@@ -48,3 +48,9 @@ a {
   height: 300px !important;
   object-fit: cover !important;
 }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
