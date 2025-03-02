@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5" #contentToConvert>
   <div class="row justify-content-center">
     <div class="col-md-5">
       <!-- بطاقة الملف الشخصي -->
@@ -13,6 +13,7 @@
           <hr class="m-0">
           <div class="imgport">
             <img src="{{currentUser.personalimg}}" class="mb-3 mt-3 img-fluid text-center inmgpe" alt="Profile Image">
+
           </div>
 
           <div class="card-jopt">
@@ -39,12 +40,26 @@
         </div>
 
       </div>
-      <div class="col-4 mt-3">
-        <div class="text-center">
-          <a href="" class="btn btn-outline-primary w-100">Logout
-          </a>
-        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container my-5">
+
+
+  <div class="row justify-content-center">
+    <div class="col-2 mt-3">
+      <div class="text-center">
+        <a (click)="downloadPDF()" class="btn btn-outline-primary w-100 no-print">Download PDF</a>
       </div>
     </div>
+    <div class="col-2 mt-3">
+      <div class="text-center">
+        <a href="" class="btn btn-outline-primary w-100 no-print">Logout
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>

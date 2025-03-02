@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   standalone: true,
   selector: 'app-registration',
@@ -20,12 +21,30 @@ export class RegistrationComponent implements OnInit {
   linkedin = '';
   personalimg = '';
 
-
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
   onRegister(): void {
+    // التحقق من الحقول الفارغة
+    const requiredFields = [
+      { value: this.username, name: 'اسم المستخدم' },
+      { value: this.password, name: 'كلمة المرور' },
+      { value: this.about, name: 'نبذة عنك' },
+      { value: this.jobTitle, name: 'المسمى الوظيفي' },
+      { value: this.cv, name: 'السيرة الذاتية' },
+      { value: this.linkedin, name: 'رابط LinkedIn' },
+      { value: this.personalimg, name: 'الصورة الشخصية' }
+    ];
+
+    const emptyField = requiredFields.find(field => !field.value.trim());
+    if (emptyField) {
+      alert(`الرجاء ملء حقل ${emptyField.name}`);
+      return;
+    }
+
+    // إنشاء كائن المستخدم إذا كل الحقول مملوءة
     let userObj = {
       username: this.username,
       password: this.password,
@@ -38,9 +57,8 @@ export class RegistrationComponent implements OnInit {
       personalimg: this.personalimg
     };
 
-
     let users: any = localStorage.getItem('users') || [];
-
+    
     if (users?.length) {
       users = JSON.parse(users);
       users.push(userObj);
@@ -49,13 +67,7 @@ export class RegistrationComponent implements OnInit {
       localStorage.setItem('users', JSON.stringify([userObj]));
     }
 
-    if (users) {
-      alert('تم تسجيل الدخول بنجاح!');
-      this.router.navigate(['/login']);
-    } else {
-      alert('بيانات الدخول غير صحيحة!');
-    }
+    alert('تم التسجيل بنجاح!');
+    this.router.navigate(['/login']);
   }
-
 }
-
