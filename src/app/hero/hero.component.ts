@@ -38,7 +38,7 @@ export class HeroComponent {
     html2canvas(element, {
       useCORS: true, // إذا كان هناك صور من مصادر خارجية
       scale: 2, // لتحسين الجودة
-      allowTaint: true,
+      // allowTaint: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
