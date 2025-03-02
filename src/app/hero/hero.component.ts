@@ -1,11 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { EditProfileComponent } from "../edit-profile/edit-profile.component";
 
 @Component({
   standalone: true,
   selector: 'app-hero',
-  imports: [],
+  imports: [EditProfileComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })

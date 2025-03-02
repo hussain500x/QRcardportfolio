@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DataService } from './data.service';
@@ -12,7 +12,7 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
   data: any;
   title = 'cardp';
-   constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getData().subscribe((response) => {

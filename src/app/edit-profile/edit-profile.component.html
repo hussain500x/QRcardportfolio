@@ -1,0 +1,39 @@
+<div class="edit-profile-container">
+  <h2>تعديل المعلومات الشخصية</h2>
+  <form (ngSubmit)="onUpdate()">
+    <div>
+      <label for="username">اسم المستخدم:</label>
+      <input id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">كلمة المرور:</label>
+      <input id="password" type="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <div>
+      <label for="about">نبذة عنك:</label>
+      <textarea id="about" [(ngModel)]="about" name="about" required></textarea>
+    </div>
+    <div>
+      <label for="phone">الهاتف:</label>
+      <input id="phone" [(ngModel)]="phone" name="phone">
+    </div>
+
+    <div>
+      <label for="jobTitle">المسمى الوظيفي:</label>
+      <input id="jobTitle" [(ngModel)]="jobTitle" name="jobTitle" required>
+    </div>
+    <div>
+      <label for="cv">السيرة الذاتية:</label>
+      <input id="cv" [(ngModel)]="cv" name="cv" required>
+    </div>
+    <div>
+      <label for="linkedin">رابط LinkedIn:</label>
+      <input id="linkedin" [(ngModel)]="linkedin" name="linkedin" required>
+    </div>
+    <div>
+      <label for="personalimg">الصورة الشخصية:</label>
+      <input id="personalimg" [(ngModel)]="personalimg" name="personalimg" required>
+    </div>
+    <button>حفظ التغييرات</button>
+  </form>
+</div>
