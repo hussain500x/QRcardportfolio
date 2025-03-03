@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
-  username = '';
   fname = '';
+  username = '';
   password = '';
   about = '';
   phone = '';
@@ -26,8 +26,8 @@ export class EditProfileComponent implements OnInit {
     // Fetch current user data from localStorage
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     if (currentUser) {
-      this.username = currentUser.username;
       this.fname = currentUser.fname;
+      this.username = currentUser.username;
       this.password = currentUser.password;
       this.about = currentUser.about;
       this.phone = currentUser.phone;
@@ -41,8 +41,8 @@ export class EditProfileComponent implements OnInit {
   onUpdate(): void {
     // Validate empty fields
     const requiredFields = [
-      { value: this.username, name: 'Username' },
       { value: this.fname, name: 'Full Name' },
+      { value: this.username, name: 'Username' },
       { value: this.password, name: 'Password' },
       { value: this.about, name: 'About You' },
       { value: this.jobTitle, name: 'Job Title' },
@@ -59,9 +59,9 @@ export class EditProfileComponent implements OnInit {
 
     // Update user data
     const updatedUser = {
+      fname: this.fname,
       username: this.username,
       password: this.password,
-      fname: this.fname,
       about: this.about,
       phone: this.phone,
       jobTitle: this.jobTitle,
