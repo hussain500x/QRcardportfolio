@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   username = '';
+  fname = '';
   password = '';
   about = '';
   phone = '';
@@ -30,6 +31,7 @@ export class RegistrationComponent implements OnInit {
     // التحقق من الحقول الفارغة
     const requiredFields = [
       { value: this.username, name: 'اسم المستخدم' },
+      { value: this.fname, name: 'اسم المستخدم' },
       { value: this.password, name: 'كلمة المرور' },
       { value: this.about, name: 'نبذة عنك' },
       { value: this.jobTitle, name: 'المسمى الوظيفي' },
@@ -47,6 +49,7 @@ export class RegistrationComponent implements OnInit {
     // إنشاء كائن المستخدم إذا كل الحقول مملوءة
     let userObj = {
       username: this.username,
+      fname: this.fname,
       password: this.password,
       about: this.about,
       phone: this.phone,
@@ -58,7 +61,7 @@ export class RegistrationComponent implements OnInit {
     };
 
     let users: any = localStorage.getItem('users') || [];
-    
+
     if (users?.length) {
       users = JSON.parse(users);
       users.push(userObj);

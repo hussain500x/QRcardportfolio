@@ -1,19 +1,18 @@
 <div class="container my-5" #contentToConvert>
   <div class="row justify-content-center">
     <div class="col-md-5">
-      <!-- بطاقة الملف الشخصي -->
+      <!-- Profile Card -->
       <div class="card shadow" style="border-radius: 16px !important;">
         <div class="container g-0">
-          <div class="row ">
+          <div class="row">
             <div class="col-10">
-              <h5 class="m-1 p-2">{{ currentUser.username }}</h5>
+              <h5 class="m-1 p-2">{{ currentUser.fname }}</h5>
             </div>
           </div>
 
           <hr class="m-0">
           <div class="imgport">
             <img src="{{currentUser.personalimg}}" class="mb-3 mt-3 img-fluid text-center inmgpe" alt="Profile Image">
-
           </div>
 
           <div class="card-jopt">
@@ -24,31 +23,34 @@
             <p class="mb-5">{{currentUser.about}}</p>
             <hr class="m-0">
             <div class="d-inline-flex pt-2">
-
               <a href="{{currentUser.linked}}"
                 class="list-group-item list-group-item-action me-3 text-decoration-underline d-inline-flex"
                 target="_blank">
-                LinkedIn <img src="../../assets/img/arrow-up-right.svg" alt="" class="invert-image"> </a>
+                LinkedIn <img src="../../assets/img/arrow-up-right.svg" alt="" class="invert-image">
+              </a>
 
               <a href="{{currentUser.cv}}"
                 class="list-group-item list-group-item-action text-decoration-underline d-inline-flex"
-                target="_blank">Portfolio <img src="../../assets/img/arrow-up-right.svg" alt=""
-                  class="invert-image"></a>
+                target="_blank">Portfolio <img src="../../assets/img/arrow-up-right.svg" alt="" class="invert-image">
+              </a>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
-
 <div class="container my-5">
-
-
   <div class="row justify-content-center">
+    <div class="col-2 mt-3">
+      <div class="text-center">
+        <!-- Button trigger modal -->
+        <a type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Edit
+        </a>
+      </div>
+    </div>
     <div class="col-2 mt-3">
       <div class="text-center">
         <a (click)="downloadPDF()" class="btn btn-outline-primary w-100 no-print">Download PDF</a>
@@ -56,17 +58,25 @@
     </div>
     <div class="col-2 mt-3">
       <div class="text-center">
-        <a href="" class="btn btn-outline-primary w-100 no-print">Logout
-        </a>
+        <a href="" class="btn btn-outline-primary w-100 no-print">Logout</a>
       </div>
     </div>
 
-    <div class="col-2 mt-3">
-      <div class="text-center">
-        <a routerLink="/edit-profile" class="btn btn-outline-primary w-100 no-print">تعديل المعلومات الشخصية</a>
-      </div>
+  </div>
+</div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Personal Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-profile></app-edit-profile>
+      </div>
     </div>
   </div>
 </div>
-<app-edit-profile></app-edit-profile>

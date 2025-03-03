@@ -10,7 +10,6 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-
 export class HeroComponent {
   currentUser: any;
 
@@ -19,35 +18,32 @@ export class HeroComponent {
     if (userStr) {
       this.currentUser = JSON.parse(userStr);
     } else {
-      alert('لم يتم تسجيل الدخول!');
+      alert('You are not logged in!');
     }
-
   }
 
   onLogout(): void {
     localStorage.removeItem('currentUser');
   }
 
-
-
   @ViewChild('contentToConvert', { static: false }) contentToConvert!: ElementRef;
 
-  // دالة لتحويل HTML إلى PDF
+  // Function to convert HTML to PDF
   downloadPDF() {
     const element = this.contentToConvert.nativeElement;
 
     html2canvas(element, {
-      useCORS: true, // إذا كان هناك صور من مصادر خارجية
-      scale: 2, // لتحسين الجودة
+      useCORS: true, // For external images
+      scale: 2, // For better quality
       // allowTaint: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgWidth = 210; // عرض A4 بالمليمتر
+      const imgWidth = 210; // A4 width in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save('profile.pdf');
     });
-  };
+  }
 }

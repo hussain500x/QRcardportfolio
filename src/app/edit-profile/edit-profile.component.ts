@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
   username = '';
+  fname = '';
   password = '';
   about = '';
   phone = '';
@@ -22,10 +23,11 @@ export class EditProfileComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // جلب بيانات المستخدم الحالي من localStorage
+    // Fetch current user data from localStorage
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     if (currentUser) {
       this.username = currentUser.username;
+      this.fname = currentUser.fname;
       this.password = currentUser.password;
       this.about = currentUser.about;
       this.phone = currentUser.phone;
@@ -37,27 +39,29 @@ export class EditProfileComponent implements OnInit {
   }
 
   onUpdate(): void {
-    // التحقق من الحقول الفارغة
+    // Validate empty fields
     const requiredFields = [
-      { value: this.username, name: 'اسم المستخدم' },
-      { value: this.password, name: 'كلمة المرور' },
-      { value: this.about, name: 'نبذة عنك' },
-      { value: this.jobTitle, name: 'المسمى الوظيفي' },
-      { value: this.cv, name: 'السيرة الذاتية' },
-      { value: this.linkedin, name: 'رابط LinkedIn' },
-      { value: this.personalimg, name: 'الصورة الشخصية' }
+      { value: this.username, name: 'Username' },
+      { value: this.fname, name: 'Full Name' },
+      { value: this.password, name: 'Password' },
+      { value: this.about, name: 'About You' },
+      { value: this.jobTitle, name: 'Job Title' },
+      { value: this.cv, name: 'CV' },
+      { value: this.linkedin, name: 'LinkedIn URL' },
+      { value: this.personalimg, name: 'Profile Picture' }
     ];
 
     const emptyField = requiredFields.find(field => !field.value.trim());
     if (emptyField) {
-      alert(`الرجاء ملء حقل ${emptyField.name}`);
+      alert(`Please fill in the ${emptyField.name} field`);
       return;
     }
 
-    // تحديث بيانات المستخدم
+    // Update user data
     const updatedUser = {
       username: this.username,
       password: this.password,
+      fname: this.fname,
       about: this.about,
       phone: this.phone,
       jobTitle: this.jobTitle,
@@ -66,9 +70,9 @@ export class EditProfileComponent implements OnInit {
       personalimg: this.personalimg
     };
 
-    // تحديث البيانات في localStorage
+    // Update data in localStorage
     localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-    alert('تم تحديث المعلومات بنجاح!');
+    alert('Information updated successfully!');
     window.location.reload();
   }
 }

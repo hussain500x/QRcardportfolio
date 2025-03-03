@@ -1,12 +1,9 @@
-
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-// import { DataService } from '../data.service';
-import { CommonModule } from '@angular/common'; // لاستخدام *ngFor
-// 
-// import { AuthService } from '../auth.service';
+import { CommonModule } from '@angular/common'; // For using *ngFor
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   standalone: true,
   selector: 'app-login',
@@ -20,6 +17,7 @@ export class LoginComponent {
   password = '';
 
   constructor(private router: Router) { }
+
   onLogin(): void {
     const usersStr = localStorage.getItem('users');
     const users = usersStr ? JSON.parse(usersStr) : [];
@@ -29,31 +27,14 @@ export class LoginComponent {
     );
 
     if (user) {
-      alert('تم تسجيل الدخول بنجاح!');
-      // حفظ بيانات المستخدم الحالي في localStorage
+      alert('Login successful!');
+      // Save current user data in localStorage
       localStorage.setItem('currentUser', JSON.stringify(user));
-      // الانتقال إلى صفحة الهيرو
+      // Navigate to the hero page
       this.router.navigate(['/hero']);
     } else {
-      alert('بيانات الدخول غير صحيحة!');
+      alert('Invalid login credentials!');
     }
   }
-  //  data: any;
 
-  // constructor(private dataService: DataService,private authService: AuthService) {}
-
-  // ngOnInit() {
-  //   this.dataService.getData().subscribe((response) => {
-  //     this.data = response;
-  //     console.log(this.data); // عرض البيانات في الكونسول
-  //   });
-  // }
-  //   email = '';
-  // password = '';
-
-  // // constructor(private authService: AuthService) {}
-
-  // onSubmit(): void {
-  //   this.authService.login(this.email, this.password).subscribe();
-  // }
 }
