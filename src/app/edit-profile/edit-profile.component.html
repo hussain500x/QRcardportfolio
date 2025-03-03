@@ -2,13 +2,13 @@
 <!-- <h2>Edit Personal Information</h2> -->
 <form (ngSubmit)="onUpdate()">
   <div>
-    <label for="fname">Username:</label>
+    <label for="fname">Full name:</label>
     <input id="username" [(ngModel)]="fname" name="fname" required>
   </div>
-  <div>
+  <!-- <div>
     <label for="password">Password:</label>
     <input id="password" type="password" [(ngModel)]="password" name="password" required>
-  </div>
+  </div> -->
   <div>
     <label for="about">About You:</label>
     <textarea id="about" [(ngModel)]="about" name="about" required></textarea>
@@ -23,7 +23,7 @@
     <input id="jobTitle" [(ngModel)]="jobTitle" name="jobTitle" required>
   </div>
   <div>
-    <label for="cv">CV:</label>
+    <label for="cv">Portfolio Link:</label>
     <input id="cv" [(ngModel)]="cv" name="cv" required>
   </div>
   <div>
