@@ -28,25 +28,25 @@ export class RegistrationComponent implements OnInit {
   }
 
   onRegister(): void {
-    // التحقق من الحقول الفارغة
+    // Check for empty fields
     const requiredFields = [
-      { value: this.username, name: 'اسم المستخدم' },
-      { value: this.fname, name: 'اسم المستخدم' },
-      { value: this.password, name: 'كلمة المرور' },
-      { value: this.about, name: 'نبذة عنك' },
-      { value: this.jobTitle, name: 'المسمى الوظيفي' },
-      { value: this.cv, name: 'السيرة الذاتية' },
-      { value: this.linkedin, name: 'رابط LinkedIn' },
-      { value: this.personalimg, name: 'الصورة الشخصية' }
+      { value: this.username, name: 'Username' },
+      { value: this.fname, name: 'Full Name' },
+      { value: this.password, name: 'Password' },
+      { value: this.about, name: 'About You' },
+      { value: this.jobTitle, name: 'Job Title' },
+      { value: this.cv, name: 'CV' },
+      { value: this.linkedin, name: 'LinkedIn Link' },
+      { value: this.personalimg, name: 'Profile Picture' }
     ];
 
     const emptyField = requiredFields.find(field => !field.value.trim());
     if (emptyField) {
-      alert(`الرجاء ملء حقل ${emptyField.name}`);
+      alert(`Please fill in the ${emptyField.name} field`);
       return;
     }
 
-    // إنشاء كائن المستخدم إذا كل الحقول مملوءة
+    // Create user object if all fields are filled
     let userObj = {
       username: this.username,
       fname: this.fname,
@@ -70,7 +70,7 @@ export class RegistrationComponent implements OnInit {
       localStorage.setItem('users', JSON.stringify([userObj]));
     }
 
-    alert('تم التسجيل بنجاح!');
+    alert('Registration successful!');
     this.router.navigate(['/login']);
   }
 }
