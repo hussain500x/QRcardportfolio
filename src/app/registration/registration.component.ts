@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   fname = '';
   password = '';
   about = '';
-  phone = '';
+  // phone = '';
   country = '';
   jobTitle = '';
   cv = '';
@@ -52,7 +52,7 @@ export class RegistrationComponent implements OnInit {
       fname: this.fname,
       password: this.password,
       about: this.about,
-      phone: this.phone,
+      // phone: this.phone,
       country: this.country,
       jobTitle: this.jobTitle,
       cv: this.cv,
